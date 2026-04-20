@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /home/quantmis/projects/mawarbiru/claude/resources/tasks/*.md)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm)",
+      "Read(//tmp/**)",
+      "Bash(npx create-next-app@latest mawarbiru-temp --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm)",
+      "Bash(npm install:*)",
+      "Bash(echo \"---EXIT:$?\")",
+      "Bash(npx prisma:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls /home/quantmis/projects/mawarbiru/node_modules/zod/dist/*.d.ts)",
+      "Bash(npx prettier:*)",
+      "Bash(npm info:*)"
+    ]
+  }
+}

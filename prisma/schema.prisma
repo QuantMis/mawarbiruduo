@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum StatusSlot {
+  TERSEDIA
+  DITEMPAH
+  DIBATALKAN
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  nama         String
+  createdAt    DateTime @default(now())
+
+  @@map("users")
+}
+
+model Pelanggan {
+  id        String   @id @default(cuid())
+  nama      String
+  noTelefon String   @unique
+  nota      String?  @db.Text
+  createdAt DateTime @default(now())
+
+  temujanji Temujanji[]
+  tempahan  Tempahan[]
+
+  @@map("pelanggan")
+}
+
+model SlotTemujanji {
+  id        String     @id @default(cuid())
+  tarikh    DateTime   @db.Date
+  masaMula  String
+  masaTamat String
+  status    StatusSlot @default(TERSEDIA)
+  createdAt DateTime   @default(now())
+
+  temujanji Temujanji?
+
+  @@map("slot_temujanji")
+}
+
+model Temujanji {
+  id              String   @id @default(cuid())
+  pelangganId     String
+  slotTemujanjiId String   @unique
+  nota            String?  @db.Text
+  createdAt       DateTime @default(now())
+
+  pelanggan     Pelanggan     @relation(fields: [pelangganId], references: [id], onDelete: Cascade)
+  slotTemujanji SlotTemujanji @relation(fields: [slotTemujanjiId], references: [id], onDelete: Cascade)
+
+  @@map("temujanji")
+}
+
+model SlotTempahan {
+  id        String     @id @default(cuid())
+  tarikh    DateTime   @db.Date
+  status    StatusSlot @default(TERSEDIA)
+  createdAt DateTime   @default(now())
+
+  tempahan Tempahan?
+
+  @@map("slot_tempahan")
+}
+
+model Tempahan {
+  id             String   @id @default(cuid())
+  namaTempahan   String
+  slotTempahanId String   @unique
+  pakejId        String
+  pelangganId    String
+  nota           String?  @db.Text
+  createdAt      DateTime @default(now())
+
+  slotTempahan SlotTempahan @relation(fields: [slotTempahanId], references: [id], onDelete: Cascade)
+  pakej        Pakej        @relation(fields: [pakejId], references: [id], onDelete: Cascade)
+  pelanggan    Pelanggan    @relation(fields: [pelangganId], references: [id], onDelete: Restrict)
+
+  @@map("tempahan")
+}
+
+model Pakej {
+  id        String   @id @default(cuid())
+  namaPakej String   @unique
+  warna     String
+  gambar    String?
+  createdAt DateTime @default(now())
+
+  tiers    PakejTier[]
+  sections PakejSection[]
+  tempahan Tempahan[]
+
+  @@map("pakej")
+}
+
+model PakejTier {
+  id          String   @id @default(cuid())
+  pakejId     String
+  namaTier    String
+  bilanganPax Int
+  harga       Decimal  @db.Decimal(10, 2)
+  createdAt   DateTime @default(now())
+
+  pakej Pakej @relation(fields: [pakejId], references: [id], onDelete: Cascade)
+
+  @@map("pakej_tier")
+}
+
+model PakejSection {
+  id        String   @id @default(cuid())
+  pakejId   String
+  tajuk     String
+  items     Json
+  createdAt DateTime @default(now())
+
+  pakej Pakej @relation(fields: [pakejId], references: [id], onDelete: Cascade)
+
+  @@map("pakej_section")
+}

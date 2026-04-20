@@ -1,6 +1,6 @@
 # Mawar Biru Duo
 
-Appointment and booking management system for Mawar Biru beauty salon. Built with Next.js, Prisma, and MySQL.
+Appointment and booking management system for Mawar Biru wedding service. Built with Next.js, Prisma, and MySQL.
 
 ## Prerequisites
 

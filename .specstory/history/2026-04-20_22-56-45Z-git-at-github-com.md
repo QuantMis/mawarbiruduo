@@ -172,11 +172,502 @@ Good — `.env` is gitignored, only `.env.example` will be included. The `.claud
 
 Actually, let me just proceed — I'll add everything, commit, and push. The `.gitignore` looks solid.
 
-_**Agent (claude-opus-4-6 2026-04-20 22:57:15Z)**_
+_**Agent (claude-opus-4-6 2026-04-20 22:57:16Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Stage all files and show summary
 
 `git add -A && git status --short | head -50`
+
+```text
+A  .claude/settings.local.json
+A  .dockerignore
+A  .env.example
+M  .gitignore
+A  .specstory/.project.json
+A  .specstory/cli/config.toml
+A  .specstory/history/2026-04-20_06-32-19Z-you-are-a-senior.md
+A  .specstory/history/2026-04-20_07-34-16Z.md
+A  .specstory/history/2026-04-20_08-18-05Z-use-subagents-and-work.md
+A  .specstory/history/2026-04-20_09-44-42Z-use-subagents-and-work.md
+A  .specstory/history/2026-04-20_22-54-58Z-how-do-i-deploy.md
+A  .specstory/history/2026-04-20_22-56-45Z-git-at-github-com.md
+A  Dockerfile
+A  app/(client)/error.tsx
+A  app/(client)/kalendar/loading.tsx
+A  app/(client)/kalendar/page.tsx
+A  app/(client)/layout.tsx
+A  app/(client)/page.tsx
+A  app/(client)/pakej/page.tsx
+A  app/(client)/temujanji/loading.tsx
+A  app/(client)/temujanji/page.tsx
+A  app/admin/layout.tsx
+A  app/admin/login/layout.tsx
+A  app/admin/login/page.tsx
+A  app/admin/page.tsx
+A  app/admin/pakej/[id]/edit/page.tsx
+A  app/admin/pakej/baru/page.tsx
+A  app/admin/pakej/page.tsx
+A  app/admin/pelanggan/page.tsx
+A  app/admin/slot-tempahan/page.tsx
+A  app/admin/slot-temujanji/page.tsx
+A  app/admin/tempahan/page.tsx
+A  app/admin/temujanji/page.tsx
+A  app/api/admin/pakej/[id]/route.ts
+A  app/api/admin/pakej/route.ts
+A  app/api/admin/pelanggan/[id]/route.ts
+A  app/api/admin/pelanggan/route.ts
+A  app/api/admin/slot-tempahan/[id]/route.ts
+A  app/api/admin/slot-tempahan/route.ts
+A  app/api/admin/slot-temujanji/[id]/route.ts
+A  app/api/admin/slot-temujanji/route.ts
+A  app/api/admin/tempahan/[id]/route.ts
+A  app/api/admin/tempahan/route.ts
+A  app/api/admin/temujanji/[id]/route.ts
+A  app/api/admin/temujanji/route.ts
+A  app/api/admin/upload/route.ts
+A  app/api/auth/[...nextauth]/route.ts
+A  app/api/kalendar/route.ts
+A  app/api/temujanji/route.ts
+A  app/api/temujanji/slots/route.ts
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:57:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Count total staged files
+
+`git status --short | wc -l`
+
+```text
+153
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:57:24Z)**_
+
+153 files staged. Let me commit and push.
+
+_**Agent (claude-opus-4-6 2026-04-20 22:57:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit all staged changes
+
+```bash
+git commit -m "$(cat <<'EOF'
+feat: initial project setup - Mawar Biru appointment & booking system
+
+Full Next.js application with admin panel, client-facing pages,
+Prisma ORM, NextAuth authentication, Docker deployment config,
+and API routes for managing packages, appointments, and bookings.
+EOF
+)"
+```
+
+```text
+[main 7086c36] feat: initial project setup - Mawar Biru appointment & booking system
+ 153 files changed, 78472 insertions(+), 106 deletions(-)
+ create mode 100644 .claude/settings.local.json
+ create mode 100644 .dockerignore
+ create mode 100644 .env.example
+ create mode 100644 .specstory/.project.json
+ create mode 100644 .specstory/cli/config.toml
+ create mode 100644 .specstory/history/2026-04-20_06-32-19Z-you-are-a-senior.md
+ create mode 100644 .specstory/history/2026-04-20_07-34-16Z.md
+ create mode 100644 .specstory/history/2026-04-20_08-18-05Z-use-subagents-and-work.md
+ create mode 100644 .specstory/history/2026-04-20_09-44-42Z-use-subagents-and-work.md
+ create mode 100644 .specstory/history/2026-04-20_22-54-58Z-how-do-i-deploy.md
+ create mode 100644 .specstory/history/2026-04-20_22-56-45Z-git-at-github-com.md
+ create mode 100644 Dockerfile
+ create mode 100644 app/(client)/error.tsx
+ create mode 100644 app/(client)/kalendar/loading.tsx
+ create mode 100644 app/(client)/kalendar/page.tsx
+ create mode 100644 app/(client)/layout.tsx
+ create mode 100644 app/(client)/page.tsx
+ create mode 100644 app/(client)/pakej/page.tsx
+ create mode 100644 app/(client)/temujanji/loading.tsx
+ create mode 100644 app/(client)/temujanji/page.tsx
+ create mode 100644 app/admin/layout.tsx
+ create mode 100644 app/admin/login/layout.tsx
+ create mode 100644 app/admin/login/page.tsx
+ create mode 100644 app/admin/page.tsx
+ create mode 100644 app/admin/pakej/[id]/edit/page.tsx
+ create mode 100644 app/admin/pakej/baru/page.tsx
+ create mode 100644 app/admin/pakej/page.tsx
+ create mode 100644 app/admin/pelanggan/page.tsx
+ create mode 100644 app/admin/slot-tempahan/page.tsx
+ create mode 100644 app/admin/slot-temujanji/page.tsx
+ create mode 100644 app/admin/tempahan/page.tsx
+ create mode 100644 app/admin/temujanji/page.tsx
+ create mode 100644 app/api/admin/pakej/[id]/route.ts
+ create mode 100644 app/api/admin/pakej/route.ts
+ create mode 100644 app/api/admin/pelanggan/[id]/route.ts
+ create mode 100644 app/api/admin/pelanggan/route.ts
+ create mode 100644 app/api/admin/slot-tempahan/[id]/route.ts
+ create mode 100644 app/api/admin/slot-tempahan/route.ts
+ create mode 100644 app/api/admin/slot-temujanji/[id]/route.ts
+ create mode 100644 app/api/admin/slot-temujanji/route.ts
+ create mode 100644 app/api/admin/tempahan/[id]/route.ts
+ create mode 100644 app/api/admin/tempahan/route.ts
+ create mode 100644 app/api/admin/temujanji/[id]/route.ts
+ create mode 100644 app/api/admin/temujanji/route.ts
+ create mode 100644 app/api/admin/upload/route.ts
+ create mode 100644 app/api/auth/[...nextauth]/route.ts
+ create mode 100644 app/api/kalendar/route.ts
+ create mode 100644 app/api/temujanji/route.ts
+ create mode 100644 app/api/temujanji/slots/route.ts
+ create mode 100644 app/global-error.tsx
+ delete mode 100644 app/page.tsx
+ create mode 100644 claude/.specstory/cli/config.toml
+ create mode 100644 claude/resources/package-imgs/WhatsApp Image 2026-04-19 at 21.43.51.jpeg
+ create mode 100644 claude/resources/package-imgs/WhatsApp Image 2026-04-19 at 21.43.51.jpeg:Zone.Identifier
+ create mode 100644 claude/resources/package-imgs/WhatsApp Image 2026-04-19 at 21.44.06.jpeg
+ create mode 100644 claude/resources/package-imgs/WhatsApp Image 2026-04-19 at 21.44.06.jpeg:Zone.Identifier
+ create mode 100644 claude/resources/package-imgs/WhatsApp Image 2026-04-19 at 21.44.29.jpeg
+ create mode 100644 claude/resources/package-imgs/WhatsApp Image 2026-04-19 at 21.44.29.jpeg:Zone.Identifier
+ create mode 100644 claude/resources/tasks/00-overview.md
+ create mode 100644 claude/resources/tasks/01-foundation.md
+ create mode 100644 claude/resources/tasks/02-design-system.md
+ create mode 100644 claude/resources/tasks/03-client-layout.md
+ create mode 100644 claude/resources/tasks/04-client-homepage.md
+ create mode 100644 claude/resources/tasks/04-client-kalendar.md
+ create mode 100644 claude/resources/tasks/04-client-pakej.md
+ create mode 100644 claude/resources/tasks/04-client-temujanji.md
+ create mode 100644 claude/resources/tasks/05-cross-cutting.md
+ create mode 100644 claude/resources/tasks/06-admin-surface.md
+ create mode 100644 claude/resources/tasks/07-quality-polish.md
+ create mode 100644 claude/resources/tasks/08-release-prep.md
+ create mode 100644 claude/resources/tasks/09-assumptions-and-questions.md
+ create mode 100644 components/admin/admin-shell.tsx
+ create mode 100644 components/admin/pakej/image-upload.tsx
+ create mode 100644 components/admin/pakej/pakej-form.tsx
+ create mode 100644 components/admin/pakej/pakej-table.tsx
+ create mode 100644 components/admin/pelanggan/pelanggan-detail.tsx
+ create mode 100644 components/admin/pelanggan/pelanggan-form.tsx
+ create mode 100644 components/admin/pelanggan/pelanggan-table.tsx
+ create mode 100644 components/admin/sidebar.tsx
+ create mode 100644 components/admin/slot-tempahan/slot-tempahan-calendar.tsx
+ create mode 100644 components/admin/slot-tempahan/slot-tempahan-form.tsx
+ create mode 100644 components/admin/slot-tempahan/slot-tempahan-list.tsx
+ create mode 100644 components/admin/slot-temujanji/slot-temujanji-form.tsx
+ create mode 100644 components/admin/slot-temujanji/slot-temujanji-table.tsx
+ create mode 100644 components/admin/tempahan/tempahan-calendar.tsx
+ create mode 100644 components/admin/tempahan/tempahan-form.tsx
+ create mode 100644 components/admin/tempahan/tempahan-table.tsx
+ create mode 100644 components/admin/temujanji/temujanji-calendar.tsx
+ create mode 100644 components/admin/temujanji/temujanji-detail.tsx
+ create mode 100644 components/admin/temujanji/temujanji-table.tsx
+ create mode 100644 components/admin/temujanji/temujanji-view.tsx
+ create mode 100644 components/admin/topbar.tsx
+ create mode 100644 components/client/footer.tsx
+ create mode 100644 components/client/header.tsx
+ create mode 100644 components/client/kalendar.tsx
+ create mode 100644 components/client/temujanji-calendar.tsx
+ create mode 100644 components/client/temujanji-form.tsx
+ create mode 100644 components/client/whatsapp-fab.tsx
+ create mode 100644 components/ui/alert.tsx
+ create mode 100644 components/ui/badge.tsx
+ create mode 100644 components/ui/button.tsx
+ create mode 100644 components/ui/card.tsx
+ create mode 100644 components/ui/container.tsx
+ create mode 100644 components/ui/empty-state.tsx
+ create mode 100644 components/ui/grid.tsx
+ create mode 100644 components/ui/heading.tsx
+ create mode 100644 components/ui/index.ts
+ create mode 100644 components/ui/input.tsx
+ create mode 100644 components/ui/label.tsx
+ create mode 100644 components/ui/mobile-menu.tsx
+ create mode 100644 components/ui/modal.tsx
+ create mode 100644 components/ui/nav-link.tsx
+ create mode 100644 components/ui/section-title.tsx
+ create mode 100644 components/ui/section.tsx
+ create mode 100644 components/ui/skeleton-calendar.tsx
+ create mode 100644 components/ui/skeleton-card.tsx
+ create mode 100644 components/ui/skeleton-text.tsx
+ create mode 100644 components/ui/skeleton.tsx
+ create mode 100644 components/ui/spinner.tsx
+ create mode 100644 components/ui/stack.tsx
+ create mode 100644 components/ui/text.tsx
+ create mode 100644 components/ui/textarea.tsx
+ create mode 100644 components/ui/toast.tsx
+ create mode 100644 docker-compose.yml
+ create mode 100644 lib/actions/auth.ts
+ create mode 100644 lib/api/handler.ts
+ create mode 100644 lib/api/index.ts
+ create mode 100644 lib/api/rate-limit.ts
+ create mode 100644 lib/api/response.ts
+ create mode 100644 lib/api/validate.ts
+ create mode 100644 lib/auth.ts
+ create mode 100644 lib/data/pakej.ts
+ create mode 100644 lib/db.ts
+ create mode 100644 lib/env.ts
+ create mode 100644 lib/utils.ts
+ create mode 100644 lib/utils/calendar.ts
+ create mode 100644 lib/validations/pakej.ts
+ create mode 100644 lib/validations/pelanggan.ts
+ create mode 100644 lib/validations/slot-tempahan.ts
+ create mode 100644 lib/validations/slot-temujanji.ts
+ create mode 100644 lib/validations/tempahan.ts
+ create mode 100644 lib/validations/temujanji.ts
+ create mode 100644 middleware.ts
+ create mode 100644 prisma/schema.prisma
+ create mode 100644 prisma/seed.ts
+ create mode 100644 spec.md
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:57:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Push to remote origin
+
+`git push -u origin main`
+
+```text
+To github.com:QuantMis/mawarbiruduo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:57:39Z)**_
+
+Done. Everything has been pushed to `git@github.com:QuantMis/mawarbiruduo.git` on the `main` branch — 153 files, including the full Next.js app, Prisma schema, Docker config, admin panel, and client-facing pages.
+
+---
+
+_**User (2026-04-20 22:59:09Z)**_
+
+please update the readme, remove all unnecessary stuff, only give short info at the top about mawarbiru duo, and a guid on how to run and what to install
+
+---
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:13Z)**_
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./README.md`
+
+```text
+1	This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+2	
+3	## Getting Started
+4	
+5	First, run the development server:
+6	
+7	```bash
+8	npm run dev
+9	# or
+10	yarn dev
+11	# or
+12	pnpm dev
+13	# or
+14	bun dev
+15	```
+16	
+17	Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+18	
+19	You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+20	
+21	This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+22	
+23	## Learn More
+24	
+25	To learn more about Next.js, take a look at the following resources:
+26	
+27	- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+28	- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+29	
+30	You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+31	
+32	## Deploy on Vercel
+33	
+34	The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+35	
+36	Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+37
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./.env.example`
+
+```text
+1	# Database
+2	MYSQL_ROOT_PASSWORD=rootpassword
+3	MYSQL_DATABASE=mawarbiru
+4	MYSQL_USER=mawarbiru
+5	MYSQL_PASSWORD=mawarbiru123
+6	DATABASE_URL="mysql://mawarbiru:mawarbiru123@db:3306/mawarbiru"
+7	
+8	# NextAuth
+9	NEXTAUTH_SECRET="generate-with-openssl-rand-hex-32"
+10	NEXTAUTH_URL="http://localhost:3000"
+11	
+12	# Admin credentials
+13	ADMIN_EMAIL="admin@mawarbiru.my"
+14	ADMIN_PASSWORD_HASH="$2b$12$..." # Generate with: npx bcryptjs hash 'your-password'
+15	
+16	# WhatsApp
+17	WHATSAPP_NUMBER="60123456789"
+18	NEXT_PUBLIC_WHATSAPP_NUMBER="60123456789"
+19
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./package.json`
+
+```text
+1	{
+2	  "name": "mawarbiru",
+3	  "version": "0.1.0",
+4	  "private": true,
+5	  "scripts": {
+6	    "dev": "next dev",
+7	    "build": "next build",
+8	    "start": "next start",
+9	    "lint": "eslint"
+10	  },
+11	  "dependencies": {
+12	    "@auth/prisma-adapter": "^2.11.2",
+13	    "@hookform/resolvers": "^5.2.2",
+14	    "@prisma/client": "^6.19.3",
+15	    "bcryptjs": "^3.0.3",
+16	    "class-variance-authority": "^0.7.1",
+17	    "clsx": "^2.1.1",
+18	    "lru-cache": "^11.3.5",
+19	    "next": "16.2.4",
+20	    "next-auth": "^5.0.0-beta.31",
+21	    "prettier": "^3.8.3",
+22	    "prettier-plugin-tailwindcss": "^0.7.2",
+23	    "prisma": "^6.19.3",
+24	    "react": "19.2.4",
+25	    "react-dom": "19.2.4",
+26	    "react-hook-form": "^7.72.1",
+27	    "sonner": "^2.0.7",
+28	    "swr": "^2.4.1",
+29	    "tailwind-merge": "^3.5.0"
+30	  },
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:24Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```md
+# Mawar Biru Duo
+
+Appointment and booking management system for Mawar Biru beauty salon. Built with Next.js, Prisma, and MySQL.
+
+## Prerequisites
+
+- Node.js 18+
+- Docker & Docker Compose (for MySQL)
+
+## Setup
+
+1. Clone and install dependencies:
+
+\```bash
+git clone git@github.com:QuantMis/mawarbiruduo.git
+cd mawarbiruduo
+npm install
+\```
+
+2. Copy env file and configure:
+
+\```bash
+cp .env.example .env
+\```
+
+Edit `.env` with your values. Generate the auth secret with:
+
+\```bash
+openssl rand -hex 32
+\```
+
+Generate admin password hash with:
+
+\```bash
+npx bcryptjs hash 'your-password'
+\```
+
+3. Start the database:
+
+\```bash
+docker compose up -d db
+\```
+
+4. Run migrations and seed:
+
+\```bash
+npx prisma migrate dev
+npx prisma db seed
+\```
+
+5. Start the dev server:
+
+\```bash
+npm run dev
+\```
+
+Open http://localhost:3000
+
+## Docker (Full Stack)
+
+To run everything in Docker:
+
+\```bash
+docker compose up -d
+\```
+
+This starts both the app (port 3000) and MySQL (port 3306).
+
+```
+
+```text
+The file /home/quantmis/projects/mawarbiru/README.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:28Z)**_
+
+Done. The README now has a brief project description and a straightforward setup guide covering dependencies, env config, database, and running the app.
+
+---
+
+_**User (2026-04-20 22:59:43Z)**_
+
+push everything. git add .
+
+---
+
+_**Agent (claude-opus-4-6 2026-04-20 22:59:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Stage, commit, and push README update
+
+```bash
+git add . && git commit -m "$(cat <<'EOF'
+docs: replace boilerplate README with project setup guide
+EOF
+)" && git push
+```
 </details></tool-use>
